@@ -1,4 +1,5 @@
 import './box.css';
+import Row from '../row' 
 
 export default function Box(props)
 {
@@ -12,7 +13,7 @@ export default function Box(props)
         </div>
 
         <div className = "box">
-            This is a test row
+            <Row/>
         </div>
     </div>
     );
