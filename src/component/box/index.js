@@ -1,6 +1,7 @@
 import './box.css';
 import Row from '../row' 
 
+
 export default function Box(props)
 {
     <link rel="stylesheet" href="box.css"></link>
@@ -13,10 +14,7 @@ export default function Box(props)
         </div>
 
         <div className = "box">
-            <p className = "rowText" style = {{marginRight:"20%"}}>Task</p>
-            <p className = "rowText" style = {{marginLeft:"20%"}}>Date Added</p>
-            <hr/>
-            <Row/>
+            <Row></Row>
         </div>
     </div>
     );
