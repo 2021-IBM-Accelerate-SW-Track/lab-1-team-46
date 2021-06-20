@@ -1,5 +1,5 @@
 import Header from "./component/header"
-import Row from "./component/row"
+import Box from "./component/box"
 import './App.css';
 
 function App() {
@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
     <Header/>
-    <Row />
+    <Box boxTitle = "To-do List"/>
+    <Box boxTitle = "Completed"/>
     </div>
   );
 }
