@@ -26,3 +26,10 @@ deleteTask(e) {
   e.preventDefault();
 
 }
+
+
+
+<form onSubmit={this.deleteTask}>
+    <input ref={(input) => this._inputElement = input} placeholder="Please enter a new task!"></input>
+    <button type="submit">Delete Task</button>
+ </form>
