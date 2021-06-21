@@ -1,14 +1,12 @@
 import Header from "./component/header"
-import ToDoList from "./component/toDoList"
-import Items from "./component/items"
+import InputBox from "./component/inputBox"
 import './App.css';
 
 function App() {
   return (
     <div className="App">
     <Header/>
-    <ToDoList/>
-    <Items/>
+    <InputBox/>
     </div>
   );
 }
