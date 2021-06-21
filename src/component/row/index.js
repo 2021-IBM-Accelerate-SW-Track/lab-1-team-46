@@ -121,8 +121,10 @@ export default function StickyHeadTable() {
                     fieldName="name"
                     onCellValueChange={handleTextFieldChange.bind(row,index)} 
                   />
+                  {/*The date table cell */}
                   <TableCell row={row}
-                    fieldName="name"> {/*The date table cell: TODO make it update to the current date */}
+                    fieldName="date"> 
+                    <p>{row["date"]}</p>
                   </TableCell>
                   <TableCell component="th" scope="row">
                     <Button
