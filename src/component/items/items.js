@@ -2,7 +2,7 @@ import React, { Component } from "react";
  
 class Items extends Component {
   addNewTask(item) {
-    return <li key={item.key}>{item.taskDescription}{item.timeAdded}</li>
+    return <ul key={item.key}>{item.taskDescription}{item.timeAdded}</ul>
   }
  
   render() {
