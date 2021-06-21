@@ -14,7 +14,7 @@ export default function Box(props)
         </div>
 
         <div className = "box">
-            <Row></Row>
+            <Row />
         </div>
     </div>
     );

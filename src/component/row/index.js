@@ -9,22 +9,24 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
-{/* This is the first row, has the names of each row*/}
+{/* This is the first row, has the names of each row in order of appearance*/}
 const columns = [
+  { id: 'check', label: '', minWidth: 100 },
   { id: 'name', label: 'Task Name', minWidth: 170 },
-  { id: 'code', label: 'Date Added', minWidth: 100 },
+  { id: 'date', label: 'Date Added', minWidth: 100 },
+  { id: 'edit', label: '', minWidth: 100 },
+  { id: 'del', label: '', minWidth: 100 }
 ];
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code};
+function createData(check, name, date, edit,del) {
+  return { check, name, date, edit,del}; {/*Obviously later this should access the array stored in the web browser*/}
 }
 
 {/* This is kind of a pseduo fucntion: It gathers all of the rows by calling createData("Data1", "Data2", "Data3"...) */}
-
+{/*TO DO: Change the dummy edit and delete buttons to ones that actually do what they say, while getting the correct data */}
 const rows = [ 
-  createData('Wash Dishes', 'June 10, 2021 12:51 PM'),
-  createData('Clean Disposal', 'June 10, 2021 9:00 PM'),
+  createData(<button>CHECKBOX</button>, 'Wash Dishes', 'June 10, 2021 12:51 PM',<button>EDIT</button>,<button>DEL</button>),
+  createData(<button>CHECKBOX</button>, 'Clean Disposal', 'June 10, 2021 9:00 PM', <button>EDIT</button>,<button>DEL</button>),
 ];
 
 
