@@ -1,10 +1,17 @@
 import Header from "./component/header"
+import Completed from "./component/header/completed"
+//import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    <Header/>
+    <div>
+      <Header />
+      <div className='container'>
+      </div>
+      <Completed />
+      <div className='completed'>
+      </div>
     </div>
   );
 }
