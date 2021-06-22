@@ -10,6 +10,10 @@ function createData(name, date, delbutton,check)
         return {name, date,delbutton,check};
     }
 
+function print()
+{
+    console.log("new data input!");
+}
 
 class Box extends Component {
 
@@ -22,7 +26,7 @@ class Box extends Component {
 
     addRow(rowArray,object)
     {
-        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=>this.removeRow(createddate)}>Delete</button>,<Checkbox/>));
+        rowArray.push(createData(<TextField id="standard-basic" label="Task Description"/>, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=>this.removeRow(createddate)}>Delete</button>,<Checkbox/>));
         console.log(rowArray.length);
         this.setState(() => {
             console.log('setting state');
@@ -45,9 +49,10 @@ class Box extends Component {
         {/*Search through the array to find which row has the exact date of the button*/}
         for(let i=0;i<this.genericRows.length;i++)
         {
-            console.log(this.genericRows[i]);
+            console.log();
             if(this.genericRows[i].date == targetDate)
             {
+                console.log(this.genericRows[i]);
                 this.genericRows.splice(i,1);
             }
         }
