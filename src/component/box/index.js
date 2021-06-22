@@ -27,7 +27,6 @@ class Box extends Component {
         });
     }
 
-
     render() {
         return (
             <div>

@@ -12,8 +12,10 @@ import TableRow from '@material-ui/core/TableRow';
 
 {/* This is the first row, has the names of each row*/}
 const columns = [
+  { id: 'check', label: 'CheckBox', minWidth: 100 },
   { id: 'name', label: 'Task Name', minWidth: 170 },
   { id: 'date', label: 'Date Added', minWidth: 100 },
+  { id: 'del', label: 'Delete', minWidth: 100 }
 ];
 
 {/* This is kind of a pseduo fucntion: It gathers all of the rows by calling createData("Data1", "Data2", "Data3"...) */}
