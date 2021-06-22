@@ -3,8 +3,12 @@ import Row from '../row'
 import TextField from "@material-ui/core/TextField";
 import ReactDOM from 'react-dom';
 import React, { Component } from "react";
+<<<<<<< HEAD
 import Checkbox from '@material-ui/core/Checkbox';
 
+=======
+import Checkbox from "react-custom-checkbox";
+>>>>>>> 3f0d6fe0f85d9d657c24d41b2c1bd4ac573a9658
 
 function createData(name, date, delbutton,check) 
     {
@@ -21,13 +25,21 @@ class Box extends Component {
 
     constructor(props) {
         super(props);
+<<<<<<< HEAD
         this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox/>)];
+=======
+        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox />)];
+>>>>>>> 3f0d6fe0f85d9d657c24d41b2c1bd4ac573a9658
         
     }
 
     addRow(rowArray,object)
     {
+<<<<<<< HEAD
         rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox/>));
+=======
+        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox />));
+>>>>>>> 3f0d6fe0f85d9d657c24d41b2c1bd4ac573a9658
         console.log(rowArray.length);
         this.setState(() => {
             console.log('setting state');
