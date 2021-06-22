@@ -42,14 +42,12 @@ class Box extends Component {
     removeRow(dateToFind)
     {
         let targetDate = dateToFind.target.attributes.createddate.nodeValue;
-        console.log("We want to find " + dateToFind.target.attributes.createddate.nodeValue);
         {/*Search through the array to find which row has the exact date of the button*/}
         for(let i=0;i<this.genericRows.length;i++)
         {
-            console.log("current found date: " + this.genericRows[i].date);
+            console.log(this.genericRows[i]);
             if(this.genericRows[i].date == targetDate)
             {
-                console.log("Found it!");
                 this.genericRows.splice(i,1);
             }
         }
