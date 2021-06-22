@@ -3,7 +3,7 @@ import Row from '../row'
 import TextField from "@material-ui/core/TextField";
 import ReactDOM from 'react-dom';
 import React, { Component } from "react";
-import Checkbox from "react-custom-checkbox";
+import Checkbox from '@material-ui/core/Checkbox';
 
 function createData(name, date, delbutton,check) 
     {
