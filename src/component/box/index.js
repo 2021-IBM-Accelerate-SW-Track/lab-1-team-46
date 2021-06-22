@@ -65,13 +65,32 @@ class Box extends Component {
         this.wantedName = newValue;
     }
 
+    checkDupe(RowsArray, input)
+    {
+        let foundDuplicate = false;
+        for(let i=0;i<this.genericRows.length;i++)
+        {
+            let curName = this.genericRows[i].name;
+            if(curName == input)
+            {
+                foundDuplicate = true;
+                break;
+                
+            }
+        }
+        if (!foundDuplicate) 
+        {
+            this.addRow(this.genericRows,input);
+        } 
+    }
+
     render() {
         return (
             <div>
             <div> {/*This div is ABOVE the box object - just a basic title header on the left side and the add/delete buttons on the right*/}
                 <h2 className = "rowText" style = {{marginRight: "70%"}}>To do List</h2>
                 <input ref={(input) => this._inputElement = input} placeholder="Please enter a new task!"></input>
-                <button onClick = {() => this.addRow(this.genericRows, this._inputElement.value )}>Add Task</button>
+                <button onClick = {() => this.checkDupe(this.genericRows, this._inputElement.value )}>Add Task</button>
                 <button onClick = {() => this.clearRows(this.genericRows)}>Clear</button>
             </div>
     
