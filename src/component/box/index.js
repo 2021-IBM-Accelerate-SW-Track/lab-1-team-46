@@ -4,22 +4,28 @@ import TextField from "@material-ui/core/TextField";
 import ReactDOM from 'react-dom';
 import React, { Component } from "react";
 
-function createData(checkbox, name, date, delbutton) 
+function createData(name, date, delbutton,check) 
     {
-        return {checkbox, name, date,delbutton};
+        return {name, date,delbutton,check};
     }
+
+function printDate(date)
+{
+
+    console.log(date.target);
+}
 
 class Box extends Component {
 
     constructor(props) {
         super(props);
-        this.genericRows = [createData(<button>Check</button>,<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button>Delete</button>)];
+        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<button>Check</button>)];
         
     }
 
     addRow(rowArray,object)
     {
-        rowArray.push(createData(<button>Check</button>,<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button>Delete</button>));
+        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<button>Check</button>));
         console.log(rowArray.length);
         this.setState(() => {
             console.log('setting state');
@@ -29,7 +35,16 @@ class Box extends Component {
 
     clearRows(rowArray)
     {
-        rowArray.splice(0);
+        rowArray.splice(0); {/*Replace 0 with the index of date to delete*/}
+        this.setState(() => {
+            console.log('setting state');
+            return { unseen: "does not display" }
+        });
+    }
+
+    removeRow(rowArray,dateToFind)
+    {
+        console.log(rowArray[0].date);
         this.setState(() => {
             console.log('setting state');
             return { unseen: "does not display" }
