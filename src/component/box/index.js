@@ -3,6 +3,7 @@ import Row from '../row'
 import TextField from "@material-ui/core/TextField";
 import ReactDOM from 'react-dom';
 import React, { Component } from "react";
+import Checkbox from "react-custom-checkbox";
 
 function createData(name, date, delbutton,check) 
     {
@@ -19,13 +20,13 @@ class Box extends Component {
 
     constructor(props) {
         super(props);
-        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<button>Check</button>)];
+        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox />)];
         
     }
 
     addRow(rowArray,object)
     {
-        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<button>Check</button>));
+        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox />));
         console.log(rowArray.length);
         this.setState(() => {
             console.log('setting state');
