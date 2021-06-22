@@ -3,43 +3,26 @@ import Row from '../row'
 import TextField from "@material-ui/core/TextField";
 import ReactDOM from 'react-dom';
 import React, { Component } from "react";
-<<<<<<< HEAD
 import Checkbox from '@material-ui/core/Checkbox';
-
-=======
-import Checkbox from "react-custom-checkbox";
->>>>>>> 3f0d6fe0f85d9d657c24d41b2c1bd4ac573a9658
 
 function createData(name, date, delbutton,check) 
     {
         return {name, date,delbutton,check};
     }
 
-function printDate(date)
-{
-
-    console.log(date.target);
-}
 
 class Box extends Component {
 
     constructor(props) {
         super(props);
-<<<<<<< HEAD
-        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox/>)];
-=======
-        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox />)];
->>>>>>> 3f0d6fe0f85d9d657c24d41b2c1bd4ac573a9658
+
+        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> this.removeRow(createddate)}>Delete</button>,<Checkbox/>)];
         
     }
 
     addRow(rowArray,object)
     {
-<<<<<<< HEAD
-        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox/>));
-=======
-        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> printDate(createddate)}>Delete</button>,<Checkbox />));
->>>>>>> 3f0d6fe0f85d9d657c24d41b2c1bd4ac573a9658
+        rowArray.push(createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=>this.removeRow(createddate)}>Delete</button>,<Checkbox/>));
         console.log(rowArray.length);
         this.setState(() => {
             console.log('setting state');
@@ -56,9 +39,20 @@ class Box extends Component {
         });
     }
 
-    removeRow(rowArray,dateToFind)
+    removeRow(dateToFind)
     {
-        console.log(rowArray[0].date);
+        let targetDate = dateToFind.target.attributes.createddate.nodeValue;
+        console.log("We want to find " + dateToFind.target.attributes.createddate.nodeValue);
+        {/*Search through the array to find which row has the exact date of the button*/}
+        for(let i=0;i<this.genericRows.length;i++)
+        {
+            console.log("current found date: " + this.genericRows[i].date);
+            if(this.genericRows[i].date == targetDate)
+            {
+                console.log("Found it!");
+                this.genericRows.splice(i,1);
+            }
+        }
         this.setState(() => {
             console.log('setting state');
             return { unseen: "does not display" }
