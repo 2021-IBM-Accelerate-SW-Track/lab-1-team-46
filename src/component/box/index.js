@@ -4,29 +4,26 @@ import TextField from "@material-ui/core/TextField";
 import ReactDOM from 'react-dom';
 import React, { Component } from "react";
 import Checkbox from '@material-ui/core/Checkbox';
+import InputBox from '../inputBox';
 
 function createData(name, date, delbutton,check) 
     {
         return {name, date,delbutton,check};
     }
 
-function print()
-{
-    console.log("new data input!");
-}
-
 class Box extends Component {
 
     constructor(props) {
         super(props);
 
-        this.genericRows = [createData(<TextField id="standard-basic" label="Task Description" />, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=> this.removeRow(createddate)}>Delete</button>,<Checkbox/>)];
-        
+        this.genericRows = [];
+        this.wantedName = "Wash Dishes";
     }
 
-    addRow(rowArray,object)
+    addRow(rowArray,nameValue)
     {
-        rowArray.push(createData(<TextField id="standard-basic" label="Task Description"/>, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=>this.removeRow(createddate)}>Delete</button>,<Checkbox/>));
+        
+        rowArray.push(createData(nameValue, Date().toLocaleString(),<button createddate = {Date().toLocaleString()} onClick = { createddate=>this.removeRow(createddate)}>Delete</button>,<Checkbox/>));
         console.log(rowArray.length);
         this.setState(() => {
             console.log('setting state');
@@ -62,12 +59,19 @@ class Box extends Component {
         });
     }
 
+    editName(newValue)
+    {
+        this.addrow(this.genericRows);
+        this.wantedName = newValue;
+    }
+
     render() {
         return (
             <div>
             <div> {/*This div is ABOVE the box object - just a basic title header on the left side and the add/delete buttons on the right*/}
                 <h2 className = "rowText" style = {{marginRight: "70%"}}>To do List</h2>
-                <button onClick = {() => this.addRow(this.genericRows)}>Add</button>
+                <input ref={(input) => this._inputElement = input} placeholder="Please enter a new task!"></input>
+                <button onClick = {() => this.addRow(this.genericRows, this._inputElement.value )}>Add Task</button>
                 <button onClick = {() => this.clearRows(this.genericRows)}>Clear</button>
             </div>
     
