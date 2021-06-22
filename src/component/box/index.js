@@ -89,8 +89,8 @@ class Box extends Component {
             <div>
             <div> {/*This div is ABOVE the box object - just a basic title header on the left side and the add/delete buttons on the right*/}
                 <h2 className = "rowText" style = {{marginRight: "70%"}}>To do List</h2>
-                <input ref={(input) => this._inputElement = input} placeholder="Please enter a new task!"></input>
-                <button onClick = {() => this.checkDupe(this.genericRows, this._inputElement.value )}>Add Task</button>
+                <input data-testid="new-item-input" ref={(input) => this._inputElement = input} placeholder="Please enter a new task!"></input>
+                <button ddata-testid="new-item-button" onClick = {() => this.checkDupe(this.genericRows, this._inputElement.value )}>Add Task</button>
                 <button onClick = {() => this.clearRows(this.genericRows)}>Clear</button>
             </div>
     
