@@ -27,13 +27,22 @@ class Box extends Component {
         });
     }
 
+    clearRows(rowArray)
+    {
+        rowArray.splice(0);
+        this.setState(() => {
+            console.log('setting state');
+            return { unseen: "does not display" }
+        });
+    }
+
     render() {
         return (
             <div>
             <div> {/*This div is ABOVE the box object - just a basic title header on the left side and the add/delete buttons on the right*/}
                 <h2 className = "rowText" style = {{marginRight: "70%"}}>To do List</h2>
                 <button onClick = {() => this.addRow(this.genericRows)}>Add</button>
-                <button>Delete</button>
+                <button onClick = {() => this.clearRows(this.genericRows)}>Clear</button>
             </div>
     
             <div className = "box">
