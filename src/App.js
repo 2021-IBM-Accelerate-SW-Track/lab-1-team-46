@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
     <Header/>
-    <Box boxTitle = "To-do List"/>
+    <Box/>
     </div>
   );
 }
